@@ -12,17 +12,23 @@ Exemple d'entrée:
     'Tofu',
     'Mayonnaise'
   ]
+['Chicken', 'Bacon', 'Tofu', 'Mayonnaise']
 En sortie: [
   'Chicken contains 7 characters',
   'Bacon contains 5 characters',
   'Tofu contains 4 characters',
   'Mayonnaise contains 10 characters'
 ]
-
  */
 
-function getStringsLength(strings) {
+const tableau = ['Chicken', 'Bacon', 'Tofu', 'Mayonnaise'];
+function getStringsLength(string){
+    const stringsLength = tableau.map(function(str){
+    return str + " contains " + str.length + " characters";
+    });
+    return stringsLength;
 }
+getStringsLength(tableau);
 
 // Si besoin, tu peux toujours visualiser le résultat avec console.log,
 // mais alors, il faut alors lancer l'exercice avec node map/ex1

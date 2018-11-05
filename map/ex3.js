@@ -4,7 +4,7 @@ Ecrire une fonction getMoviesFreshness qui reçoit comme un argument un tableau
 d'objets représentant des films.
 Chaque film a deux propriétés:
   - `name` le nom du film
-  - `rating` la note qui lui attribuée sur le site rottentomatoes.com
+  - `rating` la note qui lui est attribuée sur le site rottentomatoes.com
 
 La fonction getMoviesWithFreshness doit renvoyer un tableau contenant les objets du tableau
 d'entrée, auxquels on aura ajouté une propriété, dont la clé sera label, et la valeur,
@@ -59,9 +59,52 @@ En sortie:
 
  */
 
+const tableau = [
+  {
+    name: 'Crazy Rich Asians',
+    rating: 93
+  },
+  {
+    name: 'Skyscraper',
+    rating: 46
+  },
+  {
+    name: 'Leave No Trace',
+    rating: 100
+  },
+  {
+    name: 'White Boy Rick',
+    rating: 60
+  }
+]
 function getMoviesFreshness(movies) {
+  const moviesFreshness = movies.map(function(movie){
+    if(movie.rating < 60){
+      return {
+        name: movie.name,
+        rating: movie.rating,
+        label: 'rotten'
+      }
+    }
+    if(movie.rating <= 75){
+      return {
+        name: movie.name,
+        rating: movie.rating,
+        label: 'fresh'
+      }
+    }
+    else{
+      return {
+        name: movie.name,
+        rating: movie.rating,
+        label: 'certified fresh'
+      }
+    }
+  });
+  return moviesFreshness;
 }
 
+getMoviesFreshness(tableau)
 
 
 // Ne pas modifier l'export

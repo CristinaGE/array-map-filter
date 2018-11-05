@@ -4,13 +4,13 @@ Ecrire une fonction getCirclesProperties, qui prend en entrée un tableau de nom
 représentant les rayons de cercles, et calcule, pour chacun, la circonférence et la surface de ces cercles.
 
 Formules pour les calculs :
-* Ciconférence  =  2 * Pi * rayon
-* Diamètre      =  Pi * rayon * rayon
+* Ciconférence  =  2 * Math.PI * rayon
+* Diamètre      =  Math.PI * rayon * rayon
 
 En JavaScript, la valeur de Pi est donnée par Math.PI.
 Comme on n'a pas besoin d'une très grande précision en sortie,
 il t'est demandé de ramener chaque valeur calculée à trois chiffres
-après la virgule, en utilisant la méthode toFixed des nombres (Google est ton ami).
+après la virgule, en utilisant la méthode toFixed(3) des nombres (Google est ton ami).
 
 La fonction devra retourner, pour chaque rayon du tableau d'entrée, un objet ayant cette "forme":
 {
@@ -50,9 +50,19 @@ Tableau de sortie correspondant (toFixed transforme les nombres en chaînes)
   }
 ]
 */
-
+const tableau = [1, 3, 4.5, 7];
 function getCirclesProperties(radiuses) {
+  const circle = radiuses.map(function(circleData){
+    return{
+      radius: circleData,
+      circumference: (2 * Math.PI * circleData).toFixed(3),
+      surface: (Math.PI * circleData * circleData).toFixed(3)
+    } 
+  });
+  return circle;
 }
+
+getCirclesProperties(tableau)
 
 
 

@@ -23,8 +23,28 @@ Sortie attendue:
 ['Bordeaux', 'Lille', 'Marseille', 'Reims', 'Toulouse']
 
 */
+const tableau = [
+  { city: 'Bordeaux', curriculums: ['PHP/Symfony', 'JS/React'] },
+  { city: 'La Loupe', curriculums: ['JS/Angular'] },
+  { city: 'Lille', curriculums: ['PHP/Symfony', 'JS/React'] },
+  { city: 'Marseille', curriculums: ['JS/React'] },
+  { city: 'Orléans', curriculums: ['PHP/Symfony'] },
+  { city: 'Reims', curriculums: ['JS/React'] },
+  { city: 'Toulouse', curriculums: ['JEE/Android', 'JS/React'] }
+];
+const cours = 'JS/React';
 
-function getCampusesTeachingReact(campuses) {
+function getCampusesTeachingReact(campuses){
+  const campusesTeachingReact = campuses.filter(function(campus){
+    return campus.curriculums.includes(cours);
+  })
+  .map(function(campus){
+    return campus.city;
+  });
+  return campusesTeachingReact;
 }
+getCampusesTeachingReact(tableau, cours)
 
 module.exports = getCampusesTeachingReact;
+
+
